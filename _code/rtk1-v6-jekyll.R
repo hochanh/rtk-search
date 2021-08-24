@@ -60,26 +60,21 @@ for (i in 1:n) {
 										"\nstrokes: ", l.sks,
 										"\nimage: ", l.img,
 										"\non-yomi: ", l.on,
+										"\nredirect_to: ", paste0("https://hochanh.github.io/rtk/",l.ka),
 										ifelse(l.kun=="","",paste0("\nkun-yomi: ", l.kun)),
 										"\npermalink: /", 
 										ifelse(str_detect(l.ka,"・"),str_sub(l.ka,1,1),l.ka),"/",
-										#"\nredirect_from:",
-										#"\n - /", l.no6, "/",
+										"\nredirect_from:",
+										"\n - /", l.no6, "/",
 										#"\n - /v4/", l.no, "/",
 										#ifelse(str_detect(l.ka,"・"),
 										#			 paste0("\n - /", str_sub(l.ka,1,1), "/",
 										#			 "\n - /", str_sub(l.ka,3,3), "/"),""),
 										"\nprev: ", l.nav[l.nav$no6==(as.numeric(l.no6)-1),2],
 										"\nnext: ", l.nav[l.nav$no6==(as.numeric(l.no6)+1),2],
-										ifelse(l.pri=="","",
-													 paste0("\nprimit: \"",l.pri,"\"")),
-										ifelse(l.hei=="","",
-													 paste0("\nheisig: \"",l.hei,"\"")),
-										ifelse(l.com=="","",
-													 paste0("\ncommen: \"",l.com,"\"")),
 										"\n---",
 										"\n\n", l.koo,
 										"\n")
-	l.path <- paste0("/data/repos/manhtai/rtk/rtk1-v6/",l.na,".md")
+	l.path <- paste0("../rtk1-v6/",l.na,".md")
 	writeLines(content, l.path)
 }
